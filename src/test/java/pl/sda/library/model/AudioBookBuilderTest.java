@@ -1,0 +1,33 @@
+package pl.sda.library.model;
+
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class AudioBookBuilderTest {
+    @Test
+    public void shouldBuildAudioBookWhenAudioBookDetailsAreDefined() {
+        // given
+        String authorFirstName = "Julian";
+        String authorLastName = "Tuwim";
+        String title = "Lokomotywa";
+        Format format= Format.MP3;
+
+        // when
+        AudioBook book = new AudioBookBuilder()//
+                .authorFirstName(authorFirstName)//
+                .authorLastName(authorLastName)//
+                .title(title)//
+                .format(format)//
+                .build();
+        // then
+        assertNotNull(book);
+        assertNotNull(book.getAuthor());
+        assertEquals(authorFirstName, book.getAuthor().getFirstName());
+        assertEquals(authorLastName, book.getAuthor().getLastName());
+        assertEquals(title, book.getTitle());
+        assertEquals(format, book.getFormat());
+    }
+
+}
+
