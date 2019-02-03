@@ -1,42 +1,37 @@
 package pl.sda.library.model;
 
-import org.junit.Assert;
 import org.junit.Test;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
 
-
-    @Test
-    public void shouldAddBookWhenListOfBooksExist() {
-
-        //given
+    @Test public void shouldAddBookWhenListOfBooksExist() {
+        // given
         Library library = new Library();
-        library.setBooks(new LinkedList<Book>());
-        Book book = new Book();
-        book.setTitle("W pustyni i w puszczy");
-        //when
+        library.setBooks(new LinkedList<>());
+        Book book = new PaperBookBuilder()//
+                .title("W pustyni i w puszczy")//
+                .build();
+        // when
         library.addBook(book);
-        //then
-        Assert.assertEquals(Arrays.asList(book), library.getBooks());
+        // then
+        assertEquals(Arrays.asList(book), library.getBooks());
     }
 
-    @Test
-    public void shouldAddBookWhenListOfBooksIsNull() {
-
-        //given
+    @Test public void shouldAddBookWhenListOfBooksIsNull() {
+        // given
         Library library = new Library();
-        library.setBooks(new LinkedList<Book>());
-        Book book = new Book();
-        book.setTitle("W pustyni i w puszczy");
-        //when
+        Book book = new PaperBookBuilder()//
+                .title("W pustyni i w puszczy")//
+                .build();
+        // when
         library.addBook(book);
-        //then
-        Assert.assertEquals(Arrays.asList(book), library.getBooks());
-
+        // then
+        assertEquals(Arrays.asList(book), library.getBooks());
     }
+
 }

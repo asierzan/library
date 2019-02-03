@@ -3,15 +3,11 @@ package pl.sda.library.model;
 import pl.sda.library.model.Author;
 
 import java.util.Objects;
- public class Book {
+ public abstract class Book {
     //Author author = new Author();
 
-    private String title;
-    private Author author;
-
-    Book(){
-
-    }
+    protected String title;
+    protected Author author;
 
     public String getTitle() {
         return title;
