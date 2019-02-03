@@ -5,22 +5,22 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
-public class Library {
+public class Library<T extends Book> {
 
-    private List<Book> books;
+    private List<T> books;
     //List jest klasą generyczną <> wiec ozna zdefiniowac e lista ma tylko zawierac obiekty typu <Book>
 
 
-    public List<Book> getBooks() {   //zwraca liste ksiezek  ktora jest niezmienialna /poza nasza klasą
+    public List<T> getBooks() {   //zwraca liste ksiezek  ktora jest niezmienialna /poza nasza klasą
         return Collections.unmodifiableList(books);
     }
 
-    public void setBooks(List<Book> books) {
+    public void setBooks(List<T> books) {
         this.books = new LinkedList<>(books);
 
     }
 
-    public void addBook(Book book){
+    public void addBook(T book){
        if (books==null){
            books= new LinkedList<>();
         }
