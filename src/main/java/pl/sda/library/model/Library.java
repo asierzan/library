@@ -5,26 +5,25 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
-public class Library<T extends Book> {
+public class Library<T extends Multimedium> {
 
-    private List<T> books;
+    private List<T> media;
     //List jest klasą generyczną <> wiec ozna zdefiniowac e lista ma tylko zawierac obiekty typu <Book>
 
 
-    public List<T> getBooks() {   //zwraca liste ksiezek  ktora jest niezmienialna /poza nasza klasą
-        return Collections.unmodifiableList(books);
+    public List<T> getMedia() {   //zwraca liste ksiezek  ktora jest niezmienialna /poza nasza klasą
+        return Collections.unmodifiableList(media);
     }
 
-    public void setBooks(List<T> books) {
-        this.books = new LinkedList<>(books);
-
+    public void setMedia(List<T> media) {
+        this.media = new LinkedList<>(media);
     }
 
-    public void addBook(T book){
-       if (books==null){
-           books= new LinkedList<>();
+    public void addMultimedium(T medium){
+       if (media ==null){
+           media = new LinkedList<>();
         }
-        books.add(book);
+        media.add(medium);
     }
 
     @Override
@@ -32,18 +31,18 @@ public class Library<T extends Book> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Library library = (Library) o;
-        return Objects.equals(books, library.books);
+        return Objects.equals(media, library.media);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(books);
+        return Objects.hash(media);
     }
 
     @Override
     public String toString() {
         return "Library{" +
-                "books=" + books +
+                "media=" + media +
                 '}';
     }
 }

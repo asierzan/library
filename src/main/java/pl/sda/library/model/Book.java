@@ -1,27 +1,17 @@
 package pl.sda.library.model;
 
-import pl.sda.library.model.Author;
-
 import java.util.Objects;
- public abstract class Book {
-    //Author author = new Author();
+ public abstract class Book extends Multimedium{
+    //Creator author = new Creator();
 
-    protected String title;
-    protected Author author;
 
-    public String getTitle() {
-        return title;
-    }
+    protected Creator author;
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Author getAuthor() {
+    public Creator getAuthor() {
         return author;
     }
 
-    public void setAuthor(Author author) {
+    public void setAuthor(Creator author) {
         this.author = author;
     }
 

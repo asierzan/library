@@ -7,6 +7,7 @@ public class AudioBookBuilder {
     private String authorLastName;
     private String title;
     private Format format;
+    private int duration;
 
     public AudioBookBuilder authorFirstName(String authorFirstName){
         this.authorFirstName= authorFirstName;
@@ -24,9 +25,13 @@ public class AudioBookBuilder {
         this.format= format;
         return this;
     }
+    public AudioBookBuilder duration(int duration){
+        this.duration=duration;
+        return this;
+    }
     public AudioBook build(){
         AudioBook book=new AudioBook();
-        Author author= new Author();
+        Creator author= new Creator();
         author.setFirstName(authorFirstName);
         author.setLastName(authorLastName);
         book.setAuthor(author);
@@ -34,6 +39,7 @@ public class AudioBookBuilder {
         book.setFormat(Optional
                             .ofNullable(this.format)
                             .orElse(Format.MP3));
+        book.setDuration(duration);
 
         return book;
 
