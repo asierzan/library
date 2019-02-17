@@ -2,13 +2,14 @@ package pl.sda.library.model;
 
 import java.util.Objects;
 
-public class PaperBook extends Book {
+public class PaperBook extends Book implements PaperMedium{
 
     //tworzymy konstruktor
     PaperBook(){
 
     }
     private Cover cover;
+    private int pageCount;
 
     public Cover getCover() {
         return cover;
@@ -16,6 +17,16 @@ public class PaperBook extends Book {
 
     public void setCover(Cover cover) {
         this.cover = cover;
+    }
+
+    @Override
+    public int getPageCount() {
+        return pageCount;
+    }
+
+    @Override
+    public void setPageCount(int pageCount) {
+        this.pageCount = pageCount;
     }
 
     @Override

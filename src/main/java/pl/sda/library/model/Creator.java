@@ -2,12 +2,12 @@ package pl.sda.library.model;
 
 import java.util.Objects;
 
-public class Author {
+public class Creator {
 
     private String firstName;
     private String lastName;
 
-    Author(){
+    Creator(){
 
     }
 
@@ -31,7 +31,7 @@ public class Author {
     public boolean equals(Object o) {
         if (this == o) return true;              //== porównuje referencje -czyli miejsce w pamieci jest takie same , moga byc dwaj J.Kow ale w innym miejscu zapisane
         if (o == null || getClass() != o.getClass()) return false;
-        Author author = (Author) o;                 //rzutowanie
+        Creator author = (Creator) o;                 //rzutowanie
         return Objects.equals(firstName, author.firstName) &&
                 Objects.equals(lastName, author.lastName);
     }
@@ -44,7 +44,7 @@ public class Author {
 
     @Override
     public String toString() {
-        return "Author{" +
+        return "Creator{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
