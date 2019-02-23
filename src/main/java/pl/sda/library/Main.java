@@ -1,17 +1,40 @@
 package pl.sda.library;
 
+import pl.sda.library.command.Command;
+import pl.sda.library.command.DisplayMultimediaCommand;
+import pl.sda.library.command.FilterTypeCommand;
 import pl.sda.library.model.*;
+
+import java.util.*;
 
 
 public class Main {
 
     public static void main(String[] args) {
+        Library<Multimedium> library = createLibrary();
+        Scanner scanner=new Scanner(System.in);
+        Map<String, Command> commands = new HashMap<>();
+        commands.put("exit", ()->System.exit(0)); //program zamyka sie z kdem 0
+        commands.put("display",new DisplayMultimediaCommand(library,System.out));
+        commands.put("filter", new FilterTypeCommand(library,System.out));
+        //
+        while (true){
+            System.out.println("Podaj komende: ");
+            String commandName=scanner.nextLine();
+           Command command= commands.get(commandName);
+            Optional.ofNullable(command).ifPresent(Command::execute);
+        }
+        }
+
+
+    //ctrl alt m-tworzenie metody
+    private static Library<Multimedium> createLibrary() {
         Library<Multimedium> library = new Library<>();
-          library.addMultimedium(new PaperBookBuilder()
-                .authorFirstName("Carol")
-                .authorLastName("Lewis")
-                .title("Lew, czarownica i stara szafa")
-                .build());
+        library.addMultimedium(new PaperBookBuilder()
+              .authorFirstName("Carol")
+              .authorLastName("Lewis")
+              .title("Lew, czarownica i stara szafa")
+              .build());
         library.addMultimedium(new PaperBookBuilder()
                 .authorFirstName("Lewis")
                 .authorLastName("Carol")
@@ -112,11 +135,9 @@ public class Main {
                 .directorLastName("Darabont")
                 .duration(180)
                 .build());
+        return library;
 
-        for (Multimedium multimedium: library.getMedia()){
-            System.out.println(multimedium);
-        }
-
-
+        //        for (Multimedium multimedium: library.getMedia()){
+//            System.out.println(multimedium);
     }
 }
