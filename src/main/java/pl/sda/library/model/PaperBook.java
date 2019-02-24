@@ -47,9 +47,11 @@ public class PaperBook extends Book implements PaperMedium{
     @Override
     public String toString() {
         return "PaperBook{" +
-                "author='" + author + '\'' +
-                ", title=" + title + '\'' + "cover=" + cover +
+                "cover=" + cover +
+                ", pageCount=" + pageCount +
+                ", author=" + author +
+                ", title='" + title + '\'' +
+                ", state=" + state +
                 '}';
-
     }
 }

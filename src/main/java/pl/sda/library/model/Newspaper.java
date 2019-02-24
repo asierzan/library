@@ -44,12 +44,15 @@ public class Newspaper extends Multimedium implements PaperMedium{
         return Objects.hash(super.hashCode(), number, pageCount);
     }
 
+
     @Override
     public String toString() {
         return "Newspaper{" +
                 "number=" + number +
                 ", pageCount=" + pageCount +
                 ", title='" + title + '\'' +
+                ", state=" + state +
                 '}';
     }
 }
+

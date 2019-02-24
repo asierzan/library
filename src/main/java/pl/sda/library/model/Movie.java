@@ -51,6 +51,7 @@ public class Movie extends Multimedium implements DigitalMedium{
                 "director=" + director +
                 ", duration=" + duration +
                 ", title='" + title + '\'' +
+                ", state=" + state +
                 '}';
     }
 }

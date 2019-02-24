@@ -40,7 +40,7 @@ public class AudioBookBuilder {
                             .ofNullable(this.format)
                             .orElse(Format.MP3));
         book.setDuration(duration);
-
+        book.setState(new ReturnedState(System.out));
         return book;
 
 //        Optional<Format>formatOptional=Optional.ofNullable(this.cover);

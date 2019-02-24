@@ -26,13 +26,9 @@ public class Library<T extends Multimedium> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()){
-            return false;
-        }
-        Library library = (Library) o;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Library<?> library = (Library<?>) o;
         return Objects.equals(media, library.media);
     }
 

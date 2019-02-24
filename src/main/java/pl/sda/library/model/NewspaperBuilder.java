@@ -24,6 +24,7 @@ public class NewspaperBuilder {
         newspaper.setTitle(title);
         newspaper.setNumber(number);
         newspaper.setPageCount(pageCount);
+        newspaper.setState(new ReturnedState());
         return newspaper;
     }
 }
