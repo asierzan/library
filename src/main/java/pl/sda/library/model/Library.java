@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class Library<T extends Multimedium> {
 
-    private List<T> media;
+    private List<T> media=new LinkedList<>();
     //List jest klasą generyczną <> wiec ozna zdefiniowac e lista ma tylko zawierac obiekty typu <Book>
 
 
@@ -16,20 +16,22 @@ public class Library<T extends Multimedium> {
     }
 
     public void setMedia(List<T> media) {
+        assert media != null;
         this.media = new LinkedList<>(media);
     }
 
     public void addMultimedium(T medium){
-       if (media ==null){
-           media = new LinkedList<>();
-        }
         media.add(medium);
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()){
+            return false;
+        }
         Library library = (Library) o;
         return Objects.equals(media, library.media);
     }
