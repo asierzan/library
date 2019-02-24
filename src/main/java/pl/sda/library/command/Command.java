@@ -1,7 +1,7 @@
 package pl.sda.library.command;
 
 @FunctionalInterface
-public interface Command {
+public interface Command {  //polecenie
 
     void execute();
 }
